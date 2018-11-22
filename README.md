@@ -16,29 +16,31 @@ Example:
 ```php
 <?php
 
-include('../../vendor/autoload.php');
+include(__DIR__ . '../vendor/autoload.php');
 
 $filepath = __DIR__ . '/reports/';
 $filename = 'report_' . date('Y-m-d'); // File extensions are automatically handled.
 
 $data = [
-	0 => [
-		'name' => 'Chris Rowles',
-		'age'  => '25',
-		'type' => 'Human'
-	],
-	1 =>[
-		'name' => 'Marley',
-		'age' => '70',
-		'type' => 'Dog', 
-	]
+    0 => [
+        'name' => 'Chris',
+        'age'  => '25',
+        'type' => 'Human'
+    ],
+    1 =>[
+        'name' => 'Marley',
+        'age' => '70',
+        'type' => 'Dog', 
+    ]
 ];
 
-$csv  = new CSVExporter($filepath, $filename, $data, true);
+$csv  = new CSVExporter($filepath, $filename, true);
 try {
-	$csv->generate()->zip($filename, 'your-password-here');
+    $csv->setData($data)
+        ->generate()
+        ->zip($filename, 'your-password-here');
 } catch(\Crowles\CSVExporter\CSVException $e) {
-	$log->debug($e->getMessage());
+    $log->debug($e->getMessage());
 } 
 ```
 
