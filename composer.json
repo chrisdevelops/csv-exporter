@@ -1,0 +1,25 @@
+{
+    "name": "crowles/csv-exporter",
+    "description": "A lightweight package to export to CSV",
+    "keywords": ["files","csv", "export"],
+    "homepage": "https://github.com/chrisdevelops/csv-exporter",
+    "autoload": {
+        "psr-4": {
+            "Crowles\\CSVExporter\\": "src"
+        }
+    },
+    "type": "library",
+    "license": 	"GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Chris Rowles",
+            "email": "me@rowles.ch",
+            "homepage": "https://rowles.ch",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "ext-zip": "*"
+    }
+}
